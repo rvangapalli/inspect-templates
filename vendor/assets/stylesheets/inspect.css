@@ -1,0 +1,73 @@
+.inspect-top {
+
+    z-index: 99999;
+}
+.inspect-top {
+    display:block;
+    position: fixed;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    right: 0px;
+    top: 0%;
+
+    background: none repeat scroll 0 0 #4162A8;
+    border-color: #38538C #1F2D4D #151E33;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 10px 1px #5C8BEE inset, 0 1px 0 #1D2C4D, 0 6px 0 #1F3053, 0 8px 4px 1px #111111;
+    color: #FFFFFF;
+    font: bold 20px/1 "helvetica neue",helvetica,arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 10px 0 12px;
+    text-align: center;
+    text-shadow: 0 -1px 1px #1E2D4D;
+    width: 150px;
+
+
+}
+.inspect-top a {
+    color: #fff;
+}
+.inspect-top:hover{
+    box-shadow: 0 0 20px 1px #87ADFF inset, 0 1px 0 #1D2C4D, 0 6px 0 #1F3053, 0 8px 4px 1px #111111;
+    cursor: pointer;
+}
+
+.inspect-top a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.inspect.active {
+    display: block;
+    border-color: red;
+    border-style: solid;
+}
+.inspect.active:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.inspect.active:hover:before{
+    content: attr(data-path);
+    background-color: #fff;
+    color: #000;
+    line-height: 1em;
+    position: absolute;
+    overflow: auto;
+    min-width: 400px;
+    width:95%;
+    top: 0px;
+    right: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+    outline: 0 none;
+}
+
+
+
