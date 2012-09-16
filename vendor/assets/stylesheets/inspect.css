@@ -41,11 +41,16 @@
     color: #fff;
 }
 
-
 .inspect.active {
     display: block;
-    border-color: red;
     border-style: solid;
+}
+.inspect.server.active {
+    border-color: red;
+}
+
+.inspect.client.active {
+    border-color: blue;
 }
 .inspect.active:hover {
     background-color: rgba(0, 0, 0, 0.5);

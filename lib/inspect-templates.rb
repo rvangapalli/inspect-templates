@@ -1,4 +1,24 @@
 require "inspect-templates/version"
+require "tilt"
+require "sprockets"
+require "action_view"
+
+
+module ActionView
+  # = Action View Template
+  class Template
+    def render(view, locals, buffer=nil, &block)
+      ActiveSupport::Notifications.instrument("!render_template.action_view", :virtual_path => @virtual_path) do
+        compile!(view)
+        res=view.send(method_name, locals, buffer, &block)
+        "<inspect class=\"inspect server\" data-path=\"#{@virtual_path}\">#{res}</inspect>".html_safe
+      end
+    rescue Exception => e
+      handle_render_error(view, e)
+    end
+  end
+end
+
 module Sprockets
   class AssetAttributes
     def extensions
@@ -34,11 +54,13 @@ module Sprockets
           parts.pop
           parts.push filename
           relative_path=parts.join "/"
-          "<inspect class='inspect' data-path='#{scope.logical_path}'>#{data}</inspect>"
+          "<inspect class='inspect client' data-path='#{scope.logical_path}'>#{data}</inspect>"
         end
       end
 
     end
   end
-  register_engine '.inspect', ::Sprockets::Inspect::Template::Processor
 end
+
+Sprockets::register_engine '.inspect', Sprockets::Inspect::Template::Processor
+

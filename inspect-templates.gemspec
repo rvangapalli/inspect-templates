@@ -15,4 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Inspect::Templates::VERSION
   gem.add_dependency "railties", "~> 3.1"
+  gem.add_dependency "sprockets"
+  gem.add_dependency "sprockets_spacely"
+  gem.add_dependency "tilt"
+  gem.add_dependency "jquery-rails"
 end
