@@ -1,6 +1,6 @@
 .inspect-top {
 
-    z-index: 99999;
+    z-index: 2147483647;
 }
 .inspect-top {
     display:block;
@@ -41,30 +41,41 @@
     color: #fff;
 }
 
-.inspect.active {
+.inspect-template {
+ border: 2px solid green;
+ position: absolute;
+ display: block;
+}
+
+/**
+.inspect-template {
     display: block;
     border-style: solid;
 }
-.inspect.server.active {
+**/
+.inspect-template.server {
     border-color: red;
+    border-width: 4px;
+    border-style:solid;
+
 }
 
-.inspect.client.active {
-    border-color: blue;
+.inspect-template.client {
+    border-color: green;
+    border-width: 2px;
+    border-style:solid;
 }
-.inspect.active:hover {
+
+.inspect-template:hover {
     background-color: rgba(0, 0, 0, 0.5);
-    position: relative;
 }
-.inspect.active:hover:before{
-    content: attr(data-path);
+.inspect-template:hover:before{
+    content: attr(data-render) ":" attr(data-path);
     background-color: #fff;
     color: #000;
     line-height: 1em;
     position: absolute;
     overflow: auto;
-    min-width: 400px;
-    width:95%;
     top: 0px;
     right: 0px;
     padding: 10px;
@@ -72,7 +83,8 @@
     text-align: center;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
     outline: 0 none;
-}
+    z-index: 2147483647;
 
+}
 
 

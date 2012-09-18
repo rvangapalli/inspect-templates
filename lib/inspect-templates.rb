@@ -11,7 +11,7 @@ module ActionView
       ActiveSupport::Notifications.instrument("!render_template.action_view", :virtual_path => @virtual_path) do
         compile!(view)
         res=view.send(method_name, locals, buffer, &block)
-        "<inspect class=\"inspect server\" data-path=\"#{@virtual_path}\">#{res}</inspect>".html_safe
+        "<inspect class='inspect'  data-render='server' data-path='#{@virtual_path}'>#{res}</inspect>".html_safe
       end
     rescue Exception => e
       handle_render_error(view, e)
@@ -54,7 +54,7 @@ module Sprockets
           parts.pop
           parts.push filename
           relative_path=parts.join "/"
-          "<inspect class='inspect client' data-path='#{scope.logical_path}'>#{data}</inspect>"
+          "<inspect class='inspect' data-render='client' data-path='#{scope.logical_path}'>#{data}</inspect>"
         end
       end
 
