@@ -17,11 +17,6 @@ module Inspect
       end
 
       def evaluate(scope, locals, &block)
-        filename=(scope.pathname.to_s.split /\//).last
-        parts=(scope.logical_path.split /\//)
-        parts.pop
-        parts.push filename
-        relative_path=parts.join "/"
         "<inspect class='inspect' data-render='client' data-path='#{scope.logical_path}'>#{data}</inspect>"
       end
     end
